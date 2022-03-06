@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { Route, Routes } from 'react-router-dom';
+// import Header from './components/Header';
+import './index.css';
+import Showcases from './pages/Showcases'
+import Products from './pages/Products'
+import Our from './pages/Our'
+import Contact from './pages/Contact'
+import Card from './components/Card'
 
-function App() {
+
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+      <Card
+      title='Card Title'
+      imageUrl=''
+      body='Lorem ipsum dolor sit amet consectrtur' />
+        <Routes>
+          <Route path='/' element={<Showcases />}/>
+          <Route path='/products' element={<Products />}/>
+          <Route path='/our-process' element={<Our />}/>
+          <Route path='/contact' element={<Contact />}/>
+        </Routes>
+    </React.Fragment>
   );
 }
 
