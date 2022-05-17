@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components';
 import products from '../images/assets/Products.png';
 import PageLayout from '../components/PageLayout';
+import Card from '../components/Card'
 
 const Products = () => {
   return (
@@ -24,7 +25,9 @@ const Products = () => {
               standard dummy text ever since the 1500s, when an unknown printer<br /> 
               took a galley of type..</p>
               </h1>
-
+              <Card className='prod'>
+                <h1>Welcome</h1>
+              </Card>
         </div>
         </Section>
     </PageLayout>

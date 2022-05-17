@@ -2,25 +2,26 @@ import React from 'react'
 import { Route, Routes } from 'react-router-dom';
 // import Header from './components/Header';
 import './index.css';
+// import Owlcarousel from './components/OwlCarousel';
 import Showcases from './pages/Showcases'
 import Products from './pages/Products'
-import Our from './pages/Our'
+import OurProcess from './pages/Our-Process'
 import Contact from './pages/Contact'
-import Card from './components/Card'
-
+import Card from './components/Card';
+// import Slider from './components/slider/Slider.jsx'
 
 
 const App = () => {
   return (
     <React.Fragment>
-      <Card
-      title='Card Title'
-      imageUrl=''
-      body='Lorem ipsum dolor sit amet consectrtur' />
+      <Card />
+      {/* <Slider/> */}
+
+      {/* <Owlcarousel/> */}
         <Routes>
           <Route path='/' element={<Showcases />}/>
           <Route path='/products' element={<Products />}/>
-          <Route path='/our-process' element={<Our />}/>
+          <Route path='/our-process' element={<OurProcess />}/>
           <Route path='/contact' element={<Contact />}/>
         </Routes>
     </React.Fragment>

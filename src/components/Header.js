@@ -1,90 +1,141 @@
-import React, {} from 'react'
-import { NavLink } from 'react-router-dom'
-import { AppBar, Toolbar, } from '@mui/material'
-import Logo from '../images/assets/logo.svg'
-import Linkedin from '../images/icons/linkedin.png'
-import Twitter from '../images/icons/twitter.png'
-import Instagram from '../images/icons/instagram.png'
-import Facebook from '../images/icons/facebook.png'
-// import { Menu } from '@mui/icons-material'
+import React, { useState } from 'react';
+import { NavLink, Link } from 'react-router-dom';
+import { AppBar, 
+         Box, 
+         Drawer,
+         Toolbar, 
+         List,
+         ListItem,
+         ListItemText,
+         Menu, 
+         IconButton, 
+         MenuItem } from '@mui/material';
+import Logo from '../images/assets/logo.svg';
+import Linkedin from '../images/icons/linkedin.svg';
+import Twitter from '../images/icons/twitter.svg';
+import Instagram from '../images/icons/instagram.svg';
+import Facebook from '../images/icons/facebook.svg';
+import { Grid } from '@material-ui/core';
+import { useMediaQuery } from 'react-responsive';
+import { CloseIcon } from '@mui/icons-material/Close';
+import SideDrawer from '../components/SideDrawer';
 // import { Drawer, Grid } from '@material-ui/core'
 
 
 const Header = () => {
 
-  // const [open, setOpen] = useState(false);
+  const isMobile = useMediaQuery({ query: "(max-width: 812px)" });
+  const [open, setOpen] = useState(false);
 
-//   const toggleDrawer = () => {
-//     setOpen(!open);
-// };
+  const links = [
+    { title: 'Showcases', link: '/'},
+    { title: 'Products and Services', link: '/products'},
+    { title: 'Our Process', link: '/our-process'},
+    { title: 'Contact Us', link: '/contact'},
+  ];
 
-//   const links = [
-//     { title: "Showcases", link: "/" },
-//     { title: "Products and Services", link: "/products" },
-//     { title: "Our Process", link: "/our-process" },
-//     { title: "Contact Us", link: "/contact" },
-// ];
+  const social = [
+    { icon: Linkedin, link: 'https://www.linkedin.com/company/omniswift/mycompany/' },
+    { icon: Twitter, link: 'https://twitter.com/omniswift' },
+    { icon: Instagram, link: 'https://www.instagram.com/omniswiftltd/' },
+    { icon: Facebook, link: 'https://web.facebook.com/omniswift?_rdc=1&_rdr' },
+  ];
+
+  const toggleDrawer = () => {
+    setOpen(!open);
+  }
 
   return (
-    <>
-      <div className='nave'>
-        {/* <Grid container spacing={2}> */}
+    <div>
       <AppBar sx={{ backgroundColor: 'transparent', boxShadow: 'none'}} position='sticky'>
-        <Toolbar sx={{ paddingTop: "0.5rem" }}>
-        {/* <Grid container spacing={2}> */}
+        <Toolbar sx={{ paddingTop: "0.5rem" }} id={isMobile && 'float'}>
+        <Grid container style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between'}} >
+          {isMobile ? (
+            <div style={{display: 'flex', justifyContent: 'space-between', width: '100%', alignItems: 'center'}}>
+            <Link>
+            <img src={Logo} style={{ height: isMobile ? '80%' : '100%' }} alt="Logo" />
+            </Link>
+            <Menu onClick={() => toggleDrawer()} style={{ color: 'white', fontSize: 20 }}/>
+            </div>
+
+  ) : (
+    <>
+        <Box className='nav-content'>
+      <Grid container style={{display: 'flex',  alignItems: 'center',  }}>
+        <Grid item xs={2}>
+          <Box style={{ width: '50%', display: 'flex', }}>
           <NavLink to={'/'} className="Logo">
-          <img src={Logo} alt="logo" style={{ margin: '5% -15%' }} />
-          {/* <Menu onClick={() => toggleDrawer()} /> */}
+          <img src={Logo} alt="logo"  />
+         
           </NavLink>
-            {/* </Grid> */}
-            {/* <Grid container spacing={2}> */}
-            {/* <div className='nav-link'>
-            <Tabs textColor="secondary" indicatorColor="secondary" aria-label="secondary tabs example" sx={{ marginLeft: "auto"}}>
-                <Tab value="one" label="Showcases" href={'/'}/>
-                <Tab value="two" label="Products and Services" href={'/Products'} />
-                <Tab value="three" label="Our Process" href={'/our-process'} />
-                <Tab value="four" label="Contact Us" href={'/contact'} />
-              </Tabs>
-            </div> */}
+          </Box>
+        </Grid>
+        <Grid item xs={6} style={{ margin: '0 135px'}} >
+          {links.map(
+            ({ link, title }, key) => {
+              return (
+                <NavLink className='nav__links' activeclassName='active' to={link} key={key}>
+                  {title}
+                </NavLink>
+              );
+            }
+          )}
+          <Grid item xs={6} style={{  transform: 'translateX(200%)'}}>
+            {social.map(({ link, icon }, key) => {
+                return (
+                  <NavLink className='social' activeclassName='active' to={link} key={key}>
+                  <img src={icon} alt="img" />
+                  </NavLink>
+                )
+              }
+            )}
+          </Grid>
+            </Grid>
+            
+      </Grid>
+      </Box>
+    </>
+    )}
+    </Grid>
+  </Toolbar>
+  <Drawer className='drawer' anchor='right' open={open} onClose={() => toggleDrawer()}>
+      <div role='presentation'>
+            <div style={{ Width: '100%', height: '100vh'}}>
+            <Grid container style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '2% 4%'}}>
+              <Grid item xs={6}>
+                  <img src={Logo} alt="logo" style={{ height: '70% '}} />
+              </Grid>
+              <Grid item xs={6} style={{ display: 'flex', justifyContent: 'flex-end'}}>
+                <IconButton onClick={() => toggleDrawer()} style={{ fontSize: 45, color: 'white' }} />
+              </Grid>
+              </Grid>
 
-            <nav>
-            {/* <img src={Logo} alt="logo" style={{ margin: '5% -15%' }} /> */}
-              <ul className='nav__links'>
-                <li><a href={'/'}>Showcases</a></li>
-                <li><a href={'/products'}>Products and Services</a></li>
-                <li><a href={'/our-process'}>Our Process</a></li>
-                <li><a href={'/contact'}>Contact Us</a></li>
-              </ul>
-            </nav>
-                {/* </Grid> */}
-
-                {/* <Grid container spacing={2}> */}
-                <div className="socials">
-        <a href='https://www.linkedin.com/company/omniswift/mycompany/' className='linkedinc-social'><span>
-        <img src={Linkedin} alt='linkedin' size="2x" />
-        </span>
-            </a>
-        <a href='https://twitter.com/omniswift' className='Twitter-social'>
-            <img src={Twitter} alt='twitter' size="2x"/></a>
-        <a href='https://www.instagram.com/omniswiftltd/' className='Instagram-social'>
-          <img src={Instagram} alt='instagram' size="2x"/>
-          </a>
-        <a href='https://web.facebook.com/omniswift?_rdc=1&_rdr' className='Twitter social'><img src={Facebook} alt='facebook' size="2x" />
-            </a>
-            </div> 
-            {/* </Grid> */}
-
-
-        </Toolbar>
-        {/* <Drawer className='drawer'  anchor='left' open={open} onClose={() => toggleDrawer()}> */}
-
-        {/* </Drawer> */}
-
-      </AppBar>
+              <List style={{ display: 'flex', alignItems: 'center', flexDirection: 'column', marginTop: '20%'}}>
+                {links.map(({ title, link }, key) => (
+                  <NavLink onClick={() => toggleDrawer()} to={link} key={key} activeclassName='active' className='mobile-header'>
+                    <ListItem>
+                      <ListItemText primary={title} />
+                    </ListItem>
+                  </NavLink>
+                ))}
+              </List>
+              <Grid item xs={12} style={{ display: 'flex', justifyContent: 'center', marginLeft: '1.8rem'}}>
+                  {social.map(({ link, icon }, key) => {
+                    return (
+                      <Link onClick={() => toggleDrawer()} className='nav__link' to={link} key={key}>
+                      <img src={icon} alt="img" />
+                      </Link>
+                    );
+                  })}
+              </Grid>
+            </div>
       </div>
+      </Drawer>
       
-      </>
-  )
-}
+    </AppBar>
+    {/* <SideDrawer/> */}
+  </div>
+ );
+};
 
 export default Header
