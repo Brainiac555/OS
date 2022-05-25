@@ -1,8 +1,10 @@
-import React from 'react'
+import React from 'react';
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 import { Route, Routes } from 'react-router-dom';
 // import Header from './components/Header';
 import './index.css';
-// import Owlcarousel from './components/OwlCarousel';
+import Owlcarousel from './components/OwlCarousel';
 import Showcases from './pages/Showcases'
 import Products from './pages/Products'
 import OurProcess from './pages/Our-Process'

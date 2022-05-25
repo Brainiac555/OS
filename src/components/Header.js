@@ -9,7 +9,7 @@ import { AppBar,
          ListItemText,
          Menu, 
          IconButton, 
-         MenuItem } from '@mui/material';
+          } from '@mui/material';
 import Logo from '../images/assets/logo.svg';
 import Linkedin from '../images/icons/linkedin.svg';
 import Twitter from '../images/icons/twitter.svg';
@@ -17,9 +17,10 @@ import Instagram from '../images/icons/instagram.svg';
 import Facebook from '../images/icons/facebook.svg';
 import { Grid } from '@material-ui/core';
 import { useMediaQuery } from 'react-responsive';
-import { CloseIcon } from '@mui/icons-material/Close';
-import SideDrawer from '../components/SideDrawer';
+// import { CloseIcon } from '@mui/icons-material/Close';
+// import SideDrawer from '../components/SideDrawer';
 // import { Drawer, Grid } from '@material-ui/core'
+import { motion } from 'framer-motion'
 
 
 const Header = () => {
@@ -47,7 +48,7 @@ const Header = () => {
 
   return (
     <div>
-      <AppBar sx={{ backgroundColor: 'transparent', boxShadow: 'none'}} position='sticky'>
+      <AppBar sx={{ backgroundColor: 'transparent', boxShadow: 'none'}}>
         <Toolbar sx={{ paddingTop: "0.5rem" }} id={isMobile && 'float'}>
         <Grid container style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between'}} >
           {isMobile ? (
@@ -60,7 +61,7 @@ const Header = () => {
 
   ) : (
     <>
-        <Box className='nav-content'>
+        <motion.Box className='nav-content' animate={{ x:10}}>
       <Grid container style={{display: 'flex',  alignItems: 'center',  }}>
         <Grid item xs={2}>
           <Box style={{ width: '50%', display: 'flex', }}>
@@ -70,7 +71,7 @@ const Header = () => {
           </NavLink>
           </Box>
         </Grid>
-        <Grid item xs={6} style={{ margin: '0 135px'}} >
+        <Grid item xs={6} style={{ margin: '0 140px'}} >
           {links.map(
             ({ link, title }, key) => {
               return (
@@ -80,7 +81,7 @@ const Header = () => {
               );
             }
           )}
-          <Grid item xs={6} style={{  transform: 'translateX(200%)'}}>
+          <Grid item xs={6} style={{  transform: 'translateX(180%)'}}>
             {social.map(({ link, icon }, key) => {
                 return (
                   <NavLink className='social' activeclassName='active' to={link} key={key}>
@@ -93,7 +94,7 @@ const Header = () => {
             </Grid>
             
       </Grid>
-      </Box>
+      </motion.Box>
     </>
     )}
     </Grid>

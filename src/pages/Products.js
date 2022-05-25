@@ -12,21 +12,18 @@ const Products = () => {
       <div className='service-background'>
         <img src={products} alt="Products" />
         </div>
-        <div className='service-body-section'>
-            <h1 style={{
-                fontSize: "20px",
-                width:"100%",
-                textAlign: "left",
-                fontWeight: "200",}}>
-              <span style={{ fontSize: '70px', fontWeight: 'bold' }}>Products <br/> and Services</span>
+        <div className='service-body-section' >
+            <h1><span className='servicebody'>Products <br/> and Services</span></h1>
+            </div>
+            <div className='service-intro2'>
               <p>Here you need to add some new text related to the services provided<br /> 
               by the company. Lorem Ipsum is simply dummy text of the printing<br /> 
               and typesetting industry. Lorem Ipsum has been the industry's<br /> 
               standard dummy text ever since the 1500s, when an unknown printer<br /> 
               took a galley of type..</p>
-              </h1>
+              
               <Card className='prod'>
-                <h1>Welcome</h1>
+                {/* <h1>Welcome</h1> */}
               </Card>
         </div>
         </Section>

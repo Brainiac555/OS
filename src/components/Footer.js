@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { } from 'react';
 import { Grid, 
         Box,
         Toolbar } from '@material-ui/core';
@@ -32,7 +32,7 @@ const social = [
 const Footer = () => {
 
     const isMobile = useMediaQuery({ query: '(max-width: 821px)'});
-    const [isVisible, setIsVisible] = useState(false);
+    // const [isVisible, setIsVisible] = useState(false);
 
 
   
@@ -53,13 +53,13 @@ const Footer = () => {
                             <Box className='footer-content'>
                         <Grid container style={{ display:'flex', alignItems: 'center'}}>
                           <Grid >
-                            <Box item sx={2} style={{ width: '50%', display: 'flex', }}>
+                            <Box item  style={{ width: '50%', display: 'flex', }}>
                                 <NavLink to={'/'} className='footer-Logo'>
                                     <img alt="logo" src={Logo} />
                                 </NavLink>
                             </Box>
                           </Grid>
-                          <Grid item xs={6} style={{ margin: '0 335px', transform:'translateY(-30%)' }}>
+                          <Grid item xs={8} md={6} style={{  }}>
                             {navLinks.map (({ title, link}, key) => {
                                 return (
                                     <NavLink className='footer-links' activeClassName='active' to={link} key={key}>
@@ -68,7 +68,8 @@ const Footer = () => {
                                 );
                             }
                         )}
-                            <Grid item xs={6} style={{ transform: 'translateX(230%)'}}>
+                        </Grid>
+                            <Grid item xs={4} style={{ transform: 'translateX(-160%)'}}>
                             {social.map(({ link, icon }, key) => {
                                 return (
                                     <NavLink className='footer-socials' activeClassName='active' to={link} key={key}>
@@ -77,7 +78,7 @@ const Footer = () => {
                                 )
                             })}
                             </Grid>
-                        </Grid>
+                        
 
                         <Grid className='copyright' style={{ }}>
                 Copyright © {new Date().getFullYear()} - Omniswift Limited, All rights reserved.

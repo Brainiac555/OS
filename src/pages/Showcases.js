@@ -1,11 +1,8 @@
 import React from 'react'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 import { motion } from 'framer-motion';
-// import { Grid } from '@material-ui/core';
 import styled from 'styled-components';
-// import hero2 from '../images/assets/background2.png';
 import ourTool from '../images/icons/toolboxIcon.png';
-// import gallery from '../images/icons/gallery_isometric.png';
 import PageLayout from '../components/PageLayout';
 import { Link } from 'react-router-dom';
 import Phone1 from '../images/assets/Phone.png';
@@ -20,13 +17,22 @@ import bubmid1 from '../images/assets/bub5.svg';
 import bubright1 from '../images/assets/bubright1.png';
 import cookie from '../images/assets/cookie.png';
 import group from '../images/assets/navbubble.svg';
+import OwlCarousel from '../components/OwlCarousel';
+import Carousel from 'react-elastic-carousel';
+import { useMediaQuery } from 'react-responsive';
 // import rect from '../images/assets/rectangle.png';
 import outerbub from '../images/assets/outerbub3.svg';
-import user from '../images/assets/complete.jpg';
+// import user from '../images/assets/complete.jpg';
+import { ContainerButton } from '../components/ContainerButton';
+import ImageSlider from '../components/ImageSlider';
+import images from '../components/images';
 
 
 
-const Showcases = () => {
+const Showcases = ({ general }) => {
+  const isMobile = useMediaQuery({ query: '(max-width: 812px)'});
+  // const carouselRef = useRef();
+  
   return (
     <div>
       <PageLayout>
@@ -35,9 +41,10 @@ const Showcases = () => {
       </Helmet>
       {/* --------- Toppings -------- */}
       <Section className="hero-section">
-        <div className="user">
+        <ImageSlider images={images}/>
+        {/* <div className="user">
           <img src={user} alt="" />
-        </div>
+        </div> */}
         <motion.div animate={{ x: 20 }} className="bublow1">
           <img src={bublow} alt="blow" />
         </motion.div>
@@ -66,20 +73,20 @@ const Showcases = () => {
           <img src={cookie} alt="cookie" />
         </div>
                 
-          <motion.div animate= {{ x: 50}} className="hero-body-section">
+          {/* <motion.div animate= {{ x: 50}} className="hero-body-section">
                     <h1>
                         <span className='herobody'>First <br/> Impressions <br/> Matter</span></h1>
                         </motion.div>
                         <motion.div animate={{ x: 50 }}className='intro'>
                         <p>
-                        <span>We can help you convert more prospects into <br/> leads and customers through our process.</span>
+                        We can help you convert more prospects into <br/> leads and customers through our process.
                     </p>
                         </motion.div>
                         <div>
                     <Link to={'/contact'} className='vertical-center'>
-                      <Button> Get started </Button>
+                      <ContainerButton> Get started </ContainerButton>
                     </Link>
-                </div>
+                </div> */}
                 </Section>
 
               <Section className='hero-sectionbody'>
@@ -115,7 +122,7 @@ const Showcases = () => {
                       </div> 
                       <div>
                     <Link to={'/our-process'} className='process-button'>
-                      <Button> Our Process </Button>
+                      <ContainerButton> Our Process </ContainerButton>
                     </Link>
                 </div>  
 
@@ -140,7 +147,7 @@ const Showcases = () => {
                   </div>
                   <div>
                     <Link to={'/'} className='showcases-button'>
-                      <Button> Showcases </Button>
+                      <ContainerButton> Showcases </ContainerButton>
                     </Link>
                 </div> 
               </Section>
@@ -169,19 +176,19 @@ position: relative;
   }
 }`
 
-const Button = styled.button`
-  background-color: #0D4E99;
-  color: white;
-  font-weight: 800;
-  font-size: 14px;
-  border: none;
-  padding: 12px 50px;
-  border-radius: 50px;
-  margin: 5px 50px;
-  cursor: pointer;
-  transition: all 150ms ease;
-  // width: 330px;
-  // height: 90px;
-  // box-shadow: 0 4px 20px 0 rgba(61, 71, 82, 0.1), 0 0 0 5px rgba(0, 127, 255, 0.5);
-`;
+// const Button = styled.button`
+//   background-color: #0D4E99;
+//   color: white;
+//   font-weight: 800;
+//   font-size: 14px;
+//   border: none;
+//   padding: 12px 50px;
+//   border-radius: 50px;
+//   margin: 5px 50px;
+//   cursor: pointer;
+//   transition: all 150ms ease;
+//   width: 330px;
+//   height: 90px;
+//   box-shadow: 0 4px 20px 0 rgba(61, 71, 82, 0.1), 0 0 0 5px rgba(0, 127, 255, 0.5);
+// `;
 export default Showcases
