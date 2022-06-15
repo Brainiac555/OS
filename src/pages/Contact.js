@@ -19,7 +19,7 @@ const Contact = () => {
      Lorem ipsum dolor sit amet consectetur adipisicing elit. 
       Debitis excepturi cum atque vitae voluptatibus voluptates temporibus fugit. 
       Laboriosam a animi, cupiditate amet aut quod praesentium neque sunt ducimus itaque earum!
-     </div>
+     </div> */}
      <div className="third-child">
      Lorem ipsum dolor sit amet consectetur adipisicing elit. 
       Debitis excepturi cum atque vitae voluptatibus voluptates temporibus fugit. 
@@ -29,7 +29,7 @@ const Contact = () => {
      Lorem ipsum dolor sit amet consectetur adipisicing elit. 
       Debitis excepturi cum atque vitae voluptatibus voluptates temporibus fugit. 
       Laboriosam a animi, cupiditate amet aut quod praesentium neque sunt ducimus itaque earum!
-     </div> */}
+     </div>
       </PageLayout>
       </div>
   )

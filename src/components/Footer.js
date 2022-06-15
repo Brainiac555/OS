@@ -59,20 +59,20 @@ const Footer = () => {
                                 </NavLink>
                             </Box>
                           </Grid>
-                          <Grid item xs={8} md={6} style={{  }}>
+                          <Grid item xs={8} md={6} style={{ margin: '0 -83px', transform: 'translateY(90%)'  }}>
                             {navLinks.map (({ title, link}, key) => {
                                 return (
-                                    <NavLink className='footer-links' activeClassName='active' to={link} key={key}>
+                                    <NavLink className='footer-links' activeclassname='active' to={link} key={key}>
                                         {title}
                                     </NavLink>
                                 );
                             }
                         )}
                         </Grid>
-                            <Grid item xs={4} style={{ transform: 'translateX(-160%)'}}>
+                            <Grid item xs={4} style={{ transform: 'translateX(277%)'}}>
                             {social.map(({ link, icon }, key) => {
                                 return (
-                                    <NavLink className='footer-socials' activeClassName='active' to={link} key={key}>
+                                    <NavLink className='footer-socials' activeclassname='active' to={link} key={key}>
                                         <img src={icon} alt="img" />
                                     </NavLink>
                                 )
@@ -80,8 +80,8 @@ const Footer = () => {
                             </Grid>
                         
 
-                        <Grid className='copyright' style={{ }}>
-                Copyright © {new Date().getFullYear()} - Omniswift Limited, All rights reserved.
+                        <Grid className='copyright' style={{ margin: '0 -115px'}}>
+                Copyright © 2021 - Omniswift Limited, All rights reserved.
                 </Grid>
  
                         </Grid>
@@ -89,10 +89,10 @@ const Footer = () => {
                         
                         </>
                     )}
-<Grid container className='footer-info-container' style={{  }}>
+<Grid container className='footer-info-container' >
 <Grid   style={{ display: 'flex'  }} >
                     
-                    <Link className="privacy-policy" to="/privacy-policy">
+                    <Link className="privacy-policy" to="/privacy-policy" style={{  }}>
                     Privacy Policy
                     </Link>
             {" "}
@@ -121,24 +121,6 @@ const Footer = () => {
                 
                 
 
-            {/* <div className="footer-info-container">
-                    <div className="copyright">
-                        Copyright © {new Date().getFullYear()} - Omniswift Limited, All rights reserved.
-                    </div>
-                    <div className="privacy-terms">
-                            <span>
-                                <Link className="privacy-policy" to="/privacy-policy">
-                                Privacy Policy
-                                </Link>
-                            </span>{" "}
-                            </div>
-                            <span>
-                                <Link className="terms-condition" to="/terms-and-condition">
-                                    Terms and Conditions 
-                                </Link>
-                            </span>
-                    
-                    </div>         */}
         </div>
 
         

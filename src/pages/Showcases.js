@@ -30,8 +30,7 @@ import images from '../components/images';
 
 
 const Showcases = ({ general }) => {
-  const isMobile = useMediaQuery({ query: '(max-width: 812px)'});
-  // const carouselRef = useRef();
+  const isMobile = useMediaQuery({ query: '(max-width: 1024px)'});
   
   return (
     <div>
@@ -42,51 +41,36 @@ const Showcases = ({ general }) => {
       {/* --------- Toppings -------- */}
       <Section className="hero-section">
         <ImageSlider images={images}/>
-        {/* <div className="user">
-          <img src={user} alt="" />
-        </div> */}
+      {/* ---------- Bubbles ----------- */}
+
         <motion.div animate={{ x: 20 }} className="bublow1">
           <img src={bublow} alt="blow" />
         </motion.div>
-        <div className="group">
+        <div className="group" style={{ }}>
           <img src={group} alt="group" />
         </div>
-        <div className="bubcen">
+        <div className="bubcen" style={{ margin: '0 45px'}}>
           <img src={bubcen} alt="bcen" />
         </div>
-        <div className="outerbub">
+        <div className="outerbub" >
           <img src={outerbub} alt="outer" />
         </div>
-        <div className="bub">
+        <div className="bub" >
           <img src={bublow} alt="bub" />
         </div>
-        <div className="bubmid">
+        <div className="bubmid" style={{ margin: '0 200px'}}>
           <img src={bubmid} alt="bmid" />
         </div>
-        <div className="bub5">
+        <div className="bub5" style={{ margin: '0 705px'}}>
           <img src={bubmid1} alt="bub5" />
         </div>
-        <div className="bub6">
+        <div className="bub6" style={{  margin: '0 1110px'}}>
           <img src={bublowright} alt="" />
         </div>
-        <div className="cookie">
+        <div className="cookie" style={{ margin: '0 640px'}}>
           <img src={cookie} alt="cookie" />
         </div>
-                
-          {/* <motion.div animate= {{ x: 50}} className="hero-body-section">
-                    <h1>
-                        <span className='herobody'>First <br/> Impressions <br/> Matter</span></h1>
-                        </motion.div>
-                        <motion.div animate={{ x: 50 }}className='intro'>
-                        <p>
-                        We can help you convert more prospects into <br/> leads and customers through our process.
-                    </p>
-                        </motion.div>
-                        <div>
-                    <Link to={'/contact'} className='vertical-center'>
-                      <ContainerButton> Get started </ContainerButton>
-                    </Link>
-                </div> */}
+         
                 </Section>
 
               <Section className='hero-sectionbody'>
@@ -104,7 +88,8 @@ const Showcases = ({ general }) => {
                       <img src={bubleft} alt="Bubble" />
                     </div>
                   <div className="hero2body">
-                  <img src={ourTool} alt="Tool" /> </div>
+                  <img src={ourTool} alt="Tool" /> 
+                  </div>
                   <div className='intro2'>
                   <h2><span> Our Toolbox </span></h2>
                   </div>
@@ -161,19 +146,9 @@ const Showcases = ({ general }) => {
 
 const Section = styled.section`
 height: 1024px;
-width: 100%;
+// width: 100%;
 position: relative;
-.background {
-  height: 100%;
-  img {
-    // background-size: 300px 100px, cover;
-    width: 100%;
-    // height: 1000px;
-    background-repeat: no-repeat;
-    object-fit: contain;
-    background: #FFFFFF;
-    // linear-gradient(180deg, rgba(249, 249, 249, 0.29) -14.99%, rgba(85, 202, 255, 0.52) 118.32%);
-  }
+
 }`
 
 // const Button = styled.button`

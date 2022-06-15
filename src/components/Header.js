@@ -17,15 +17,12 @@ import Instagram from '../images/icons/instagram.svg';
 import Facebook from '../images/icons/facebook.svg';
 import { Grid } from '@material-ui/core';
 import { useMediaQuery } from 'react-responsive';
-// import { CloseIcon } from '@mui/icons-material/Close';
-// import SideDrawer from '../components/SideDrawer';
-// import { Drawer, Grid } from '@material-ui/core'
 import { motion } from 'framer-motion'
 
 
 const Header = () => {
 
-  const isMobile = useMediaQuery({ query: "(max-width: 812px)" });
+  const isMobile = useMediaQuery({ query: "(max-width: 1024px)" });
   const [open, setOpen] = useState(false);
 
   const links = [
@@ -46,36 +43,37 @@ const Header = () => {
     setOpen(!open);
   }
 
+
   return (
     <div>
       <AppBar sx={{ backgroundColor: 'transparent', boxShadow: 'none'}}>
-        <Toolbar sx={{ paddingTop: "0.5rem" }} id={isMobile && 'float'}>
+        <Toolbar sx={{ paddingTop: "0.5rem" }}>
         <Grid container style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between'}} >
           {isMobile ? (
             <div style={{display: 'flex', justifyContent: 'space-between', width: '100%', alignItems: 'center'}}>
             <Link>
             <img src={Logo} style={{ height: isMobile ? '80%' : '100%' }} alt="Logo" />
             </Link>
-            <Menu onClick={() => toggleDrawer()} style={{ color: 'white', fontSize: 20 }}/>
+            <Menu open={open} onClick={() => toggleDrawer()} style={{ color: 'white', fontSize: 20 }}/>
             </div>
 
   ) : (
     <>
-        <motion.Box className='nav-content' animate={{ x:10}}>
+        <motion.div className='nav-content' animate={{ x:10}}>
       <Grid container style={{display: 'flex',  alignItems: 'center',  }}>
         <Grid item xs={2}>
-          <Box style={{ width: '50%', display: 'flex', }}>
+          <div style={{ width: '50%', display: 'flex', }}>
           <NavLink to={'/'} className="Logo">
           <img src={Logo} alt="logo"  />
          
           </NavLink>
-          </Box>
+          </div>
         </Grid>
-        <Grid item xs={6} style={{ margin: '0 140px'}} >
+        <Grid item xs={6} style={{ margin: '0 180px', }} >
           {links.map(
             ({ link, title }, key) => {
               return (
-                <NavLink className='nav__links' activeclassName='active' to={link} key={key}>
+                <NavLink className='nav__links' activeclassname='active' to={link} key={key}>
                   {title}
                 </NavLink>
               );
@@ -84,7 +82,7 @@ const Header = () => {
           <Grid item xs={6} style={{  transform: 'translateX(180%)'}}>
             {social.map(({ link, icon }, key) => {
                 return (
-                  <NavLink className='social' activeclassName='active' to={link} key={key}>
+                  <NavLink className='social' activeclassname='active' to={link} key={key}>
                   <img src={icon} alt="img" />
                   </NavLink>
                 )
@@ -94,7 +92,7 @@ const Header = () => {
             </Grid>
             
       </Grid>
-      </motion.Box>
+      </motion.div>
     </>
     )}
     </Grid>
@@ -113,7 +111,7 @@ const Header = () => {
 
               <List style={{ display: 'flex', alignItems: 'center', flexDirection: 'column', marginTop: '20%'}}>
                 {links.map(({ title, link }, key) => (
-                  <NavLink onClick={() => toggleDrawer()} to={link} key={key} activeclassName='active' className='mobile-header'>
+                  <NavLink onClick={() => toggleDrawer()} to={link} key={key} activeclassname='active' className='mobile-header'>
                     <ListItem>
                       <ListItemText primary={title} />
                     </ListItem>
