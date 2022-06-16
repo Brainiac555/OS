@@ -18,16 +18,6 @@ const ImageSlider = ({images}) => {
    };
    return (
       <>
-      {/* <div clasName= 'hero' style={{
-         fontSize: '1.8rem',
-         fontWeight: '700',
-         fontFamily: 'Poppins, sans-serif',
-         // transform: 'translateY(100%)'
-      }}>
-         <h1> First Impressions Matter</h1>
-
-         
-      </div> */}
       <div >
          <Slider {...settings}>
             {images.map(
